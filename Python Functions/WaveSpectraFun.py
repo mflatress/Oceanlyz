@@ -155,7 +155,7 @@ def WaveSpectraFun(input,fs,duration,nfft,h,heightfrombed,fmin,fmax,ftailcorrect
     windowelem = 256 #number of elements in each window
     overlapelem = 128 #number of overlap element
 
-    f,Syy=sp.signal.welch(input1,fs=fs,nfft=nfft) #Wave power spectrum and Frequency
+    f,Syy=sp.signal.welch(input1,window="Hamming", nperseg=len(input1)/8, fs=fs,nfft=nfft) #Wave power spectrum and Frequency
 
     w=2*np.pi*f #angular velocity
     deltaf=f[1]-f[0]
